@@ -1,0 +1,40 @@
+{
+  "name": "react-subx",
+  "version": "0.1.0",
+  "description": "Official React bindings for SubX",
+  "repository": "git@github.com:tylerlong/react-subx.git",
+  "author": "Tyler Long <tyler4long@gmail.com>",
+  "license": "MIT",
+  "main": "dist/main.js",
+  "module": "src/index.js",
+  "scripts": {
+    "test": "standard && jest -w 1",
+    "release": "webpack --progress --colors",
+    "upgrade": "yarn-upgrade-all && yarn remove babel-core && yarn add --dev babel-core@7.0.0-bridge.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/register": "^7.0.0",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "eslint-plugin-html": "^4.0.6",
+    "jest": "^23.6.0",
+    "standard": "^12.0.1",
+    "webpack": "^4.19.1",
+    "webpack-cli": "^3.1.1",
+    "yarn-upgrade-all": "^0.3.0"
+  },
+  "peerDependencies": {
+    "react": "^16.5.2",
+    "subx": "^0.3.2"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "yarn.lock"
+  ],
+  "jest": {
+    "setupTestFrameworkScriptFile": "./test/setup.js"
+  }
+}
