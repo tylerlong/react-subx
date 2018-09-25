@@ -6,7 +6,7 @@ class Component extends React.Component {
     this.subscriptions = R.pipe(
       R.values,
       R.filter(val => val.__isSubX__),
-      R.map(val => val.$.subscribe(() => this.forceUpdate()))
+      R.map(val => val.$$.subscribe(() => this.forceUpdate()))
     )(this.props)
   }
   componentWillUnmount () {
