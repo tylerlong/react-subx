@@ -22,13 +22,10 @@ class Editor extends Component {
   }
   componentWillMount () {
     super.componentWillMount()
-    this.htmlSubscription = this.article.$.pipe(debounceTime(100)).subscribe(event => {
+    const subscription = this.article.$.pipe(debounceTime(100)).subscribe(event => {
       this.setState({ html: this.article.html })
     })
-  }
-  componentWillUnmount () {
-    super.componentWillUnmount()
-    this.htmlSubscription.unsubscribe()
+    this.subscriptions.push(subscription)
   }
   render () {
     renderHistory.push('render')
