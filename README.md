@@ -1,5 +1,6 @@
 # react-subx
 
+[![Build Status](https://travis-ci.org/tylerlong/react-subx.svg?branch=master)](https://travis-ci.org/tylerlong/react-subx)
 [![npm version](https://badge.fury.io/js/react-subx.svg)](https://badge.fury.io/js/react-subx)
 
 Official React bindings for [SubX](https://github.com/tylerlong/subx).
@@ -14,4 +15,3 @@ yarn add react-subx
 
 ## Todo
 
-- Write some tests, setup Travis, add Travis badge
