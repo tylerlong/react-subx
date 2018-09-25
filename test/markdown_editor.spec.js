@@ -16,12 +16,14 @@ class Editor extends Component {
   constructor (props) {
     super(props)
     this.article = props.article
+    this.state = {
+      html: ''
+    }
   }
   componentWillMount () {
     super.componentWillMount()
     this.htmlSubscription = this.article.$.pipe(debounceTime(100)).subscribe(event => {
-      this.html = this.article.html
-      this.forceUpdate()
+      this.setState({ html: this.article.html })
     })
   }
   componentWillUnmount () {
@@ -34,7 +36,7 @@ class Editor extends Component {
       <div>
         <textarea placeholder='Please enter some markdown...' id='markdown-textarea'
           value={this.article.text} onChange={e => { this.article.text = e.target.value }} />
-        <div className='markdown-body' dangerouslySetInnerHTML={{ __html: this.html }} />
+        <div className='markdown-body' dangerouslySetInnerHTML={{ __html: this.state.html }} />
       </div>
     )
   }
