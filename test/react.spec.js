@@ -21,12 +21,8 @@ describe('React', () => {
     }
     const renderer = TestRenderer.create(<MyComponent />)
     const input = renderer.root.find(el => el.type === 'input')
-    input.props.onChange({
-      target: { value: '1' }
-    })
-    input.props.onChange({
-      target: { value: '2' }
-    })
+    input.props.onChange({ target: { value: '1' } })
+    input.props.onChange({ target: { value: '2' } })
     expect(count).toBe(3) // 3 render() invokes in total
   })
 })

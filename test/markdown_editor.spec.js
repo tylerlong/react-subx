@@ -8,7 +8,7 @@ import delay from 'timeout-as-promise'
 
 const mdi = new MarkdownIt()
 
-const renders = []
+const renderHistory = []
 
 class Editor extends React.Component {
   componentWillMount () {
@@ -24,7 +24,7 @@ class Editor extends React.Component {
     this.htmlSubscription.unsubscribe()
   }
   render () {
-    renders.push('render')
+    renderHistory.push('render')
     return (
       <div>
         <textarea placeholder='Please enter some markdown...' id='markdown-textarea'
@@ -38,7 +38,7 @@ class Editor extends React.Component {
 const Article = new SubX({
   text: '',
   get html () {
-    renders.push('mdi.render')
+    renderHistory.push('mdi.render')
     return mdi.render(this.text)
   }
 })
@@ -48,13 +48,11 @@ describe('Markdown Editor', () => {
   test('default', async () => {
     const renderer = TestRenderer.create(<Editor article={article} />)
     const textarea = renderer.root.find(el => el.type === 'textarea')
-    textarea.props.onChange({
-      target: {
-        value: '# Hello'
-      }
-    })
+    textarea.props.onChange({ target: { value: '# Hello' } })
+    textarea.props.onChange({ target: { value: '# Hello world' } })
     await delay(200)
-    expect(renders).toEqual([
+    expect(renderHistory).toEqual([
+      'render',
       'render',
       'render',
       'mdi.render',
