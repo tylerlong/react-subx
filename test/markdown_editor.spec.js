@@ -6,21 +6,26 @@ import SubX from 'subx'
 import MarkdownIt from 'markdown-it'
 import delay from 'timeout-as-promise'
 
+import { Component } from '../src/index'
+
 const mdi = new MarkdownIt()
 
 const renderHistory = []
 
-class Editor extends React.Component {
+class Editor extends Component {
+  constructor (props) {
+    super(props)
+    this.article = props.article
+  }
   componentWillMount () {
-    this.article = this.props.article
-    this.propsSubscription = this.article.$.subscribe(() => this.forceUpdate())
+    super.componentWillMount()
     this.htmlSubscription = this.article.$.pipe(debounceTime(100)).subscribe(event => {
       this.html = this.article.html
       this.forceUpdate()
     })
   }
   componentWillUnmount () {
-    this.propsSubscription.unsubscribe()
+    super.componentWillUnmount()
     this.htmlSubscription.unsubscribe()
   }
   render () {
