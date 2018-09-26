@@ -2,7 +2,6 @@
 import React from 'react'
 import TestRenderer from 'react-test-renderer'
 import SubX from 'subx'
-import delay from 'timeout-as-promise'
 
 import { Component } from '../src/index'
 
@@ -78,8 +77,6 @@ describe('Markdown Editor', () => {
     const input = renderer.root.find(el => el.type === 'input')
     const footer = renderer.root.find(el => el.props.id === 'footer')
 
-    console.log(footer.children)
-
     input.props.onChange({ target: { value: '111' } })
     expect(input.props.value).toBe('111')
     input.props.onKeyDown({ keyCode: 13, preventDefault: () => {} })
@@ -90,8 +87,6 @@ describe('Markdown Editor', () => {
       activeCount: 1
     })
     expect(input.props.value).toBe('')
-
-    console.log(footer.children)
 
     input.props.onChange({ target: { value: '222' } })
     expect(input.props.value).toBe('222')
@@ -104,8 +99,6 @@ describe('Markdown Editor', () => {
       activeCount: 2
     })
     expect(input.props.value).toBe('')
-
-    console.log(footer.children)
 
     input.props.onChange({ target: { value: '333' } })
     expect(input.props.value).toBe('333')
@@ -120,10 +113,9 @@ describe('Markdown Editor', () => {
     })
     expect(input.props.value).toBe('')
 
-    console.log(footer.children)
-
-    await delay(100)
-
-    console.log(footer.children)
+    // trigger render again because no render after getter updates
+    // todo: I need to fix this
+    store.todos[0].active = true
+    expect(footer.children).toEqual(['3', ' Item', 's', ' left'])
   })
 })
