@@ -1,6 +1,6 @@
 /* eslint-env jest */
 describe('OOP inheritance', () => {
-  test('children should call parent constructor', () => {
+  test('child should call parent constructor', () => {
     let count = 0
     class A {
       constructor () {
@@ -13,12 +13,13 @@ describe('OOP inheritance', () => {
     expect(count).toBe(1)
   })
 
-  test('parent rewrite children method', () => {
+  test('parent wrap child method', () => {
     class A {
       constructor () {
         if (typeof this.render === 'function') {
+          const temp = this.render.bind(this)
           this.render = function () {
-            return 'Greetings from A'
+            return `Before ${temp()} after`
           }
         }
       }
@@ -29,7 +30,6 @@ describe('OOP inheritance', () => {
       }
     }
     const b = new B()
-    expect(b).toBeDefined()
-    expect(b.render()).toBe('Greetings from A')
+    expect(b.render()).toBe('Before Greetings from B after')
   })
 })
