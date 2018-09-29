@@ -30,7 +30,7 @@ describe('React', () => {
     let count = 0
     let count2 = 0
     class BaseComponent extends React.Component {
-      componentWillMount () {
+      componentDidMount () {
         count2 += 1
       }
     }
@@ -53,6 +53,6 @@ describe('React', () => {
     input.props.onChange({ target: { value: '1' } })
     input.props.onChange({ target: { value: '2' } })
     expect(count).toBe(3) // 3 render() invokes in total
-    expect(count2).toBe(1) // parent `componentWillMount` invoked
+    expect(count2).toBe(1) // parent `componentDidMount` invoked
   })
 })

@@ -20,8 +20,8 @@ class Editor extends Component {
       html: ''
     }
   }
-  componentWillMount () {
-    super.componentWillMount()
+  componentDidMount () {
+    super.componentDidMount()
     const subscription = this.article.$.pipe(debounceTime(100)).subscribe(event => {
       this.setState({ html: this.article.html })
     })

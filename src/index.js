@@ -2,7 +2,7 @@ import React from 'react'
 import * as R from 'ramda'
 
 class Component extends React.Component {
-  componentWillMount () {
+  componentDidMount () {
     this.subscriptions = R.pipe(
       R.values,
       R.filter(val => val.__isSubX__),
