@@ -11,7 +11,7 @@ class App extends React.Component {
     this.counter = this.props.counter
   }
   componentDidMount () {
-    this.subscription = this.counter.$$.subscribe(() => this.forceUpdate())
+    this.subscription = this.counter.$.subscribe(() => this.forceUpdate())
   }
   componentWillUnmount () {
     this.subscription.unsubscribe()

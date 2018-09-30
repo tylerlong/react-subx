@@ -4779,7 +4779,7 @@ rxjs@^5.5.2:
   dependencies:
     symbol-observable "1.0.1"
 
-rxjs@^6.3.2:
+rxjs@^6.3.3:
   version "6.3.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz#3c6a7fa420e844a81390fb1158a9ec614f4bad55"
   dependencies:
@@ -5147,12 +5147,12 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-subx@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/subx/-/subx-0.4.0.tgz#eae2079437edf64851712f367a3030f4b14e1343"
+subx@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/subx/-/subx-0.4.2.tgz#437038128e4a7656f53ba0810e31747d5eeb24a1"
   dependencies:
     ramda "^0.25.0"
-    rxjs "^6.3.2"
+    rxjs "^6.3.3"
 
 supports-color@^2.0.0:
   version "2.0.0"
