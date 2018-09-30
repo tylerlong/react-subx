@@ -113,9 +113,6 @@ describe('Markdown Editor', () => {
     })
     expect(input.props.value).toBe('')
 
-    // trigger render again because no render after getter updates
-    // todo: I need to fix this
-    store.todos[0].active = true
     expect(footer.children).toEqual(['3', ' Item', 's', ' left'])
   })
 })

@@ -11,11 +11,3 @@ Official React bindings for [SubX](https://github.com/tylerlong/subx).
 ```
 yarn add react-subx
 ```
-
-
-## Todo
-
-- Bug: an event has several subscribers, one of them is React.render, another is getter monitor.
-    - If former triggered earlier than later, then render doesn't show us the latest data.
-    - Later doesn't trigger former, so we never get the latest view unless explicitly invoke render
-    - We have this data consistency issue because subscribers are notified sequentially.
