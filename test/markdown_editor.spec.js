@@ -38,7 +38,7 @@ const Article = new SubX({
   text: '',
   get html () {
     renderHistory.push('mdi.render')
-    return mdi.render(this.text)
+    return mdi.render(this.text).trim()
   }
 })
 const article = new Article()
@@ -50,6 +50,9 @@ describe('Markdown Editor', () => {
     textarea.props.onChange({ target: { value: '# Hello' } })
     textarea.props.onChange({ target: { value: '# Hello world' } })
     await delay(200)
+    expect(article.html).toBe('<h1>Hello world</h1>')
+    const markdownBody = renderer.root.find(el => el.props.className === 'markdown-body')
+    expect(markdownBody.props.dangerouslySetInnerHTML.__html).toBe('<h1>Hello world</h1>')
     expect(renderHistory).toEqual([
       'render',
       'render',
