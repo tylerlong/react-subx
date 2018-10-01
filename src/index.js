@@ -1,21 +1,20 @@
 import React from 'react'
-import * as R from 'ramda'
-import { merge } from 'rxjs'
+import SubX, { runAndMonitor } from 'subx'
 
 class Component extends React.Component {
-  componentDidMount () {
-    this.subscriptions = R.pipe(
-      R.values,
-      R.filter(val => val.__isSubX__),
-      R.map(val => merge(val.$, val.stale$).subscribe(() => this.forceUpdate()))
-    )(this.props)
-  }
-  componentWillUnmount () {
-    R.forEach(subscription => subscription.unsubscribe(), this.subscriptions)
-    delete this.subscriptions
+  constructor (props) {
+    super(props)
+    const render = this.render.bind(this)
+    this.render = () => {
+      if (this.subscription) {
+        this.subscription.unsubscribe()
+        delete this.subscription
+      }
+      const { result, stream } = runAndMonitor(SubX.create(props), render)
+      this.subscription = stream.subscribe(event => this.forceUpdate())
+      return result
+    }
   }
 }
 
-export {
-  Component
-}
+export { Component }
