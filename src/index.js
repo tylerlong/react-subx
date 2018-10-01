@@ -6,12 +6,12 @@ class Component extends React.Component {
     super(props)
     const render = this.render.bind(this)
     this.render = () => {
-      if (this.subscription) {
-        this.subscription.unsubscribe()
-        delete this.subscription
+      if (this.__subscription__) {
+        this.__subscription__.unsubscribe()
+        delete this.__subscription__
       }
       const { result, stream } = runAndMonitor(SubX.create(props), render)
-      this.subscription = stream.subscribe(event => this.forceUpdate())
+      this.__subscription__ = stream.subscribe(event => this.forceUpdate())
       return result
     }
   }
