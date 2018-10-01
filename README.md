@@ -11,3 +11,8 @@ Official React bindings for [SubX](https://github.com/tylerlong/subx).
 ```
 yarn add react-subx
 ```
+
+
+## Todo
+
+- Support function style React component

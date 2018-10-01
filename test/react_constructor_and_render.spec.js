@@ -50,9 +50,6 @@ describe('React', () => {
         history.push('C render end')
         return result
       }
-      shouldComponentUpdate () {
-        return false
-      }
     }
 
     const renderer = TestRenderer.create(<A />)
@@ -74,11 +71,9 @@ describe('React', () => {
       'A render start',
       'A render end',
       'B render start',
-      'B render end'
-
-      // C doesn't render because shouldComponentUpdate returns false
-      // 'C render start',
-      // 'C render end'
+      'B render end',
+      'C render start',
+      'C render end'
     ])
   })
 })
