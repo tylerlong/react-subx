@@ -13,6 +13,31 @@ yarn add react-subx
 ```
 
 
+## Usage
+
+```js
+import SubX from 'subx'
+import { Component } from 'react-subx'
+import ReactDOM from 'react-dom'
+
+class App extends Component {
+  render () {
+    const counter = this.props.counter
+    return <div>
+      <button onClick={e => { counter.number -= 1 }}>-</button>
+      <span>{counter.number}</span>
+      <button onClick={e => { counter.number += 1 }}>+</button>
+    </div>
+  }
+}
+
+const counter = SubX.create({ number: 0 })
+ReactDOM.render(<App counter={counter} />, document.getElementById('container'));
+```
+
+It is super simple to use. Simply let your components extend `Component` from 'react-subx' instead of `React.Component`.
+
+
 ## Todo
 
 - Support function style React component
