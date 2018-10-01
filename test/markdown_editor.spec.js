@@ -19,13 +19,8 @@ class Editor extends Component {
     this.state = {
       html: ''
     }
-  }
-  componentDidMount () {
-    super.componentDidMount()
-    const subscription = this.article.$.pipe(debounceTime(100)).subscribe(event => {
-      this.setState({ html: this.article.html })
-    })
-    this.subscriptions.push(subscription)
+    // todo: when to unsubscribe?
+    this.article.$.pipe(debounceTime(100)).subscribe(event => this.setState({ html: this.article.html }))
   }
   render () {
     renderHistory.push('render')
