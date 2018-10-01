@@ -36,8 +36,3 @@ ReactDOM.render(<App counter={counter} />, document.getElementById('container'))
 ```
 
 It is super simple to use. Simply let your components extend `Component` from 'react-subx' instead of `React.Component`.
-
-
-## Todo
-
-- Support function style React component
