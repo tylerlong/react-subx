@@ -18,7 +18,7 @@ describe('OOP inheritance', () => {
       constructor () {
         if (typeof this.render === 'function') {
           const temp = this.render.bind(this)
-          this.render = function () {
+          this.render = () => {
             return `Before ${temp()} after`
           }
         }
