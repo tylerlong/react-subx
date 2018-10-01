@@ -18,3 +18,4 @@ class Component extends React.Component {
 }
 
 export { Component }
+export default { Component }
