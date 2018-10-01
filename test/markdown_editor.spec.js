@@ -47,11 +47,11 @@ describe('Markdown Editor', () => {
   test('default', async () => {
     const renderer = TestRenderer.create(<Editor article={article} />)
     const textarea = renderer.root.find(el => el.type === 'textarea')
+    const markdownBody = renderer.root.find(el => el.props.className === 'markdown-body')
     textarea.props.onChange({ target: { value: '# Hello' } })
     textarea.props.onChange({ target: { value: '# Hello world' } })
+    expect(markdownBody.props.dangerouslySetInnerHTML.__html).toBe('') // because of debounce
     await delay(200)
-    expect(article.html).toBe('<h1>Hello world</h1>')
-    const markdownBody = renderer.root.find(el => el.props.className === 'markdown-body')
     expect(markdownBody.props.dangerouslySetInnerHTML.__html).toBe('<h1>Hello world</h1>')
     expect(renderHistory).toEqual([
       'render',
