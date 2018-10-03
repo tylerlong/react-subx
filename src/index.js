@@ -18,7 +18,7 @@ class Component extends React.Component {
       return result
     }
     if (this.componentWillUnmount) {
-      const originalComponentWillUnmount = this.componentWillUnmount
+      const originalComponentWillUnmount = this.componentWillUnmount.bind(this)
       this.componentWillUnmount = () => {
         clearSubscription()
         originalComponentWillUnmount()
