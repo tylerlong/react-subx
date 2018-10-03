@@ -4,15 +4,27 @@ import SubX, { runAndMonitor } from 'subx'
 class Component extends React.Component {
   constructor (props) {
     super(props)
-    const render = this.render.bind(this)
-    this.render = () => {
+    const clearSubscription = () => {
       if (this.__subscription__) {
         this.__subscription__.unsubscribe()
         delete this.__subscription__
       }
+    }
+    const render = this.render.bind(this)
+    this.render = () => {
+      clearSubscription()
       const { result, stream } = runAndMonitor(SubX.create(props), render)
       this.__subscription__ = stream.subscribe(event => this.forceUpdate())
       return result
+    }
+    if (this.componentWillUnmount) {
+      const originalComponentWillUnmount = this.componentWillUnmount
+      this.componentWillUnmount = () => {
+        clearSubscription()
+        originalComponentWillUnmount()
+      }
+    } else {
+      this.componentWillMount = () => clearSubscription()
     }
   }
 }
