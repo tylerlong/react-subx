@@ -24,7 +24,7 @@ class Component extends React.Component {
         originalComponentWillUnmount()
       }
     } else {
-      this.componentWillMount = () => clearSubscription()
+      this.componentWillUnmount = () => clearSubscription()
     }
   }
 }
