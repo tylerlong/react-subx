@@ -5153,9 +5153,9 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-subx@^0.4.6:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/subx/-/subx-0.4.6.tgz#4fa3f4df856b57cb1ad51494a6ac6ce4dee320dc"
+subx@^0.4.7:
+  version "0.4.7"
+  resolved "https://registry.yarnpkg.com/subx/-/subx-0.4.7.tgz#00f8d9664614eb0922d553d5cd99d8b098a7654b"
   dependencies:
     ramda "^0.25.0"
     rxjs "^6.3.3"
