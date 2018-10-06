@@ -48,7 +48,7 @@ describe('update props', () => {
     expect(span.children).toEqual(['world'])
     const button = renderer.root.find(el => el.type === 'button')
     button.props.onClick()
-    expect(span.children).toEqual(['world']) // update propsdoesn't work
+    expect(span.children).toEqual(['world']) // update props doesn't work
   })
 
   test('Class A & B 3', () => {
@@ -75,6 +75,6 @@ describe('update props', () => {
     expect(span.children).toEqual(['world'])
     const button = renderer.root.find(el => el.type === 'button')
     button.props.onClick()
-    expect(span.children).toEqual(['world']) // update propsdoesn't work
+    expect(span.children).toEqual(['world']) // update props doesn't work
   })
 })

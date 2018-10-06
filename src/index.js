@@ -26,6 +26,11 @@ class Component extends React.Component {
     } else {
       this.componentWillUnmount = () => clearSubscription()
     }
+    if (!this.shouldComponentUpdate) {
+      this.shouldComponentUpdate = (nextProps, nextState) => {
+        return nextState !== this.state
+      }
+    }
   }
 }
 
