@@ -1,6 +1,6 @@
 {
   "name": "react-subx",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Official React bindings for SubX",
   "repository": "git@github.com:tylerlong/react-subx.git",
   "author": "Tyler Long <tyler4long@gmail.com>",

@@ -14,7 +14,10 @@ class Component extends React.Component {
     this.render = () => {
       clearSubscription()
       const { result, stream } = runAndMonitor(SubX.create(props), render)
-      this.__subscription__ = stream.subscribe(event => this.forceUpdate())
+      this.__subscription__ = stream.subscribe(event => {
+        clearSubscription()
+        this.forceUpdate()
+      })
       return result
     }
     if (this.componentWillUnmount) {
