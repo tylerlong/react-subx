@@ -1,5 +1,5 @@
 import React from 'react'
-import SubX, { runAndMonitor } from 'subx'
+import { runAndMonitor } from 'subx'
 
 class Component extends React.Component {
   constructor (props) {
@@ -13,7 +13,7 @@ class Component extends React.Component {
     const render = this.render.bind(this)
     this.render = () => {
       clearSubscription()
-      const { result, stream } = runAndMonitor(SubX.create(props), render)
+      const { result, stream } = runAndMonitor(props, render)
       this.__subscription__ = stream.subscribe(event => {
         clearSubscription()
         this.forceUpdate()
