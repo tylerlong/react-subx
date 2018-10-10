@@ -9,7 +9,8 @@
   "module": "src/index.js",
   "scripts": {
     "test": "standard && jest -w 1",
-    "release": "webpack --progress --colors"
+    "release": "webpack --progress --colors",
+    "prepublishOnly": "yarn release"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
