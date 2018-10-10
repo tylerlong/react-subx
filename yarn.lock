@@ -4499,10 +4499,6 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-fast-compare@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.2.tgz#0560ba7a61a1662d9cea8cd97a0d9db7591bab1c"
-
 react-is@^16.5.2:
   version "16.5.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
@@ -5157,12 +5153,11 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-subx@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/subx/-/subx-0.5.1.tgz#d7a23de9fa6691845f3e16f5fa54a777b1b76fd0"
+subx@^0.5.2:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/subx/-/subx-0.5.2.tgz#e1da64a3308bddb375610ee4250f35bfd9895f7d"
   dependencies:
     ramda "^0.25.0"
-    react-fast-compare "^2.0.2"
     rxjs "^6.3.3"
 
 supports-color@^2.0.0:
