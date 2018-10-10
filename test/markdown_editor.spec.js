@@ -19,7 +19,7 @@ class Editor extends Component {
     this.state = {
       html: ''
     }
-    this.subscription = this.article.$.pipe(debounceTime(100)).subscribe(event => this.setState({ html: this.article.html }))
+    this.subscription = this.article.$.pipe(debounceTime(30)).subscribe(event => this.setState({ html: this.article.html }))
   }
   componentWillUnmount () {
     this.subscription.unsubscribe()
@@ -50,13 +50,12 @@ describe('Markdown Editor', () => {
     const renderer = TestRenderer.create(<Editor article={article} />)
     const textarea = renderer.root.find(el => el.type === 'textarea')
     const markdownBody = renderer.root.find(el => el.props.className === 'markdown-body')
-    textarea.props.onChange({ target: { value: '# Hello' } })
+    textarea.props.onChange({ target: { value: '# Hello' } }) // this one won't trigger render because of debounce
     textarea.props.onChange({ target: { value: '# Hello world' } })
     expect(markdownBody.props.dangerouslySetInnerHTML.__html).toBe('') // because of debounce
-    await delay(200)
+    await delay(50)
     expect(markdownBody.props.dangerouslySetInnerHTML.__html).toBe('<h1>Hello world</h1>')
     expect(renderHistory).toEqual([
-      'render',
       'render',
       'render',
       'mdi.render',

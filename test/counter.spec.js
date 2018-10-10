@@ -2,6 +2,7 @@
 import React from 'react'
 import TestRenderer from 'react-test-renderer'
 import SubX from 'subx'
+import delay from 'timeout-as-promise'
 
 import { Component } from '../src/index'
 
@@ -32,6 +33,7 @@ describe('Counter', () => {
     expect(counter.number).toBe(0)
     addButton.props.onClick()
     expect(counter.number).toBe(1)
-    expect(renderHisotry).toEqual([0, -1, 0, 1])
+    await delay(20)
+    expect(renderHisotry).toEqual([0, 1]) // Intermediate "-1, 0" were not rendered because of debounce
   })
 })

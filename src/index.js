@@ -1,5 +1,6 @@
 import React from 'react'
 import { runAndMonitor } from 'subx'
+import { buffer, debounceTime } from 'rxjs/operators'
 
 class Component extends React.Component {
   constructor (props) {
@@ -14,7 +15,8 @@ class Component extends React.Component {
     this.render = () => {
       clearSubscription()
       const { result, stream } = runAndMonitor(props, render)
-      this.__subscription__ = stream.subscribe(event => {
+      const bufferedStream = stream.pipe(buffer(stream.pipe(debounceTime(10))))
+      this.__subscription__ = bufferedStream.subscribe(event => {
         clearSubscription()
         this.forceUpdate()
       })

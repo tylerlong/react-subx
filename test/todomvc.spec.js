@@ -2,6 +2,7 @@
 import React from 'react'
 import TestRenderer from 'react-test-renderer'
 import SubX from 'subx'
+import delay from 'timeout-as-promise'
 
 import { Component } from '../src/index'
 
@@ -112,6 +113,8 @@ describe('Markdown Editor', () => {
       activeCount: 3
     })
     expect(input.props.value).toBe('')
+
+    await delay(20)
 
     expect(footer.children).toEqual(['3', ' Item', 's', ' left'])
   })
