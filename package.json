@@ -9,8 +9,7 @@
   "module": "src/index.js",
   "scripts": {
     "test": "standard && jest -w 1",
-    "release": "webpack --progress --colors",
-    "upgrade": "yarn-upgrade-all && yarn remove babel-core && yarn add --dev babel-core@7.0.0-bridge.0 react subx"
+    "release": "webpack --progress --colors"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -25,15 +24,15 @@
     "react": "^16.5.2",
     "react-test-renderer": "^16.5.2",
     "standard": "^12.0.1",
-    "subx": "^0.5.0",
+    "subx": "^0.5.1",
     "timeout-as-promise": "^1.0.0",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "yarn-upgrade-all": "^0.3.0"
+    "yarn-upgrade-all": "^0.5.0"
   },
   "peerDependencies": {
     "react": "^16.5.2",
-    "subx": "^0.5.0"
+    "subx": "^0.5.1"
   },
   "files": [
     "dist/*",
@@ -42,5 +41,10 @@
   ],
   "jest": {
     "setupTestFrameworkScriptFile": "./test/setup.js"
+  },
+  "yarn-upgrade-all": {
+    "ignore": [
+      "babel-core"
+    ]
   }
 }
