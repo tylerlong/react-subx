@@ -1,6 +1,7 @@
 import React from 'react'
 import { runAndMonitor } from 'subx'
 import { buffer, debounceTime } from 'rxjs/operators'
+import * as R from 'ramda'
 
 class Component extends React.Component {
   constructor (props) {
@@ -15,8 +16,11 @@ class Component extends React.Component {
     this.render = () => {
       clearSubscription()
       const { result, stream } = runAndMonitor(props, render)
-      const bufferedStream = stream.pipe(buffer(stream.pipe(debounceTime(10))))
-      this.__subscription__ = bufferedStream.subscribe(event => {
+      const bufferedStream = stream.pipe(buffer(stream.pipe(debounceTime(2))))
+      this.__subscription__ = bufferedStream.subscribe(events => {
+        if (R.all(event => event.type === 'STALE', events) && R.all(event => R.equals(R.path(event.path, props), event.cache), events)) {
+          return
+        }
         clearSubscription()
         this.forceUpdate()
       })
