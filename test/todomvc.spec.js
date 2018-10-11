@@ -68,7 +68,7 @@ class TodoFooter extends Component {
   }
 }
 
-describe('Markdown Editor', () => {
+describe('Todo MVC', () => {
   test('default', async () => {
     const renderer = TestRenderer.create(<App store={store} />)
     expect(store).toEqual({
