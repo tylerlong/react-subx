@@ -61,16 +61,16 @@ Here is a [standard TodoMVC demo implemeted with react-subx](https://github.com/
 
 A good state container should meet the following 3 criteria:
 
-1. minimize computation
-1. minimize rendering (of frontend framework, such as React)
-1. minimize the burden of developers
+1. Minimize computation
+1. Minimize rendering (of frontend framework, such as React)
+1. Minimize the burden of developers
 
-#### minimize computation
+#### Minimize computation
 
 Use as many [computed properties](https://github.com/tylerlong/subx#computed-properties) as necessary.
 SubX is smart enough to cache computed properties to avoid computation.
 
-#### minimize rendering
+#### Minimize rendering
 
 When working together with a frontend framework such as React, it is important to control the number of re-render.
 Lots of re-render often leads to performance issues.
@@ -78,9 +78,9 @@ Lots of re-render often leads to performance issues.
 `react-subx` takes care of this for us automatically. We don't need to define `shouldComponentUpdate`.
 We don't need to turn to reselet either. And it just works and it is just performant.
 
-#### minimize the burden of developers
+#### Minimize the burden of developers
 
-I used to be a Ruby developer. I cannot agree more with "make developers happy".
+I used to be a Ruby developer. I cannot agree more on "make developers happy".
 
 With `react-subx`, developers do NOT have to learn actions, reducers, dispatchers, selectors...etc.
 
@@ -89,7 +89,7 @@ Just follow common sense and it just works and is just performant.
 
 ## How does react-subx work?
 
-Simplily put, `react-subx` deems React's `render` method as a [computed property](https://github.com/tylerlong/subx#computed-properties).
+Simply put, `react-subx` deems React's `render` method as a [computed property](https://github.com/tylerlong/subx#computed-properties).
 
 It applies the same algorithm which powers [SubX](https://github.com/tylerlong/subx) computed properties to React's `render` method. So that `render` method won't be invoked until absolutely necessary.
 
