@@ -36,3 +36,10 @@ ReactDOM.render(<App counter={counter} />, document.getElementById('container'))
 ```
 
 It is super simple to use. Simply let your components extend `Component` from 'react-subx' instead of `React.Component`.
+
+
+## TodoMVC demo
+
+Here is a [standard TodoMVC demo implemeted with react-subx](https://github.com/tylerlong/subx-demo-todomvc)
+
+#### [online demo](https://tylerlong.github.io/subx-demo-todomvc/index.html)

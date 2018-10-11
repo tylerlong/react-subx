@@ -1,5 +1,6 @@
 /* eslint-env jest */
 import SubX from 'subx'
+import * as R from 'ramda'
 
 describe('props tracking', () => {
   test('default', () => {
@@ -16,7 +17,7 @@ describe('props tracking', () => {
     newProps.$.subscribe(event => events.push(event))
     props.a.b.x = 'Hello'
     props.c.d.x = 'world'
-    expect(events).toEqual([ // only previously SubX Objects are tracked.
+    expect(R.map(R.dissoc('id'), events)).toEqual([ // only previously SubX Objects are tracked.
       {
         type: 'SET',
         path: [ 'c', 'd', 'x' ],
