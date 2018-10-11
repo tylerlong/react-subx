@@ -135,4 +135,4 @@ In the sample above, we "cached" `this.todos` in constructor. It might be a bad 
 
 Let's say we execute `store.todos = [...]` somewhere else.
 Then `store.todos` is no longer the `this.todos` we cached.
-Later changes to `store.todos` won't re-render component at all because it uses a cache version of `this.todos` which has been disconnected from `store`.
+Later changes to `store.todos` won't re-render component at all because it uses a cached version of `this.todos` which has been disconnected from `store`.
