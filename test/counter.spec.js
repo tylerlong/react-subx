@@ -10,29 +10,29 @@ const renderHisotry = []
 
 class App extends Component {
   render () {
-    const counter = this.props.counter
-    renderHisotry.push(counter.number)
+    const store = this.props.store
+    renderHisotry.push(store.number)
     return <div>
-      <button onClick={e => { counter.number -= 1 }}>-</button>
-      <span>{counter.number}</span>
-      <button onClick={e => { counter.number += 1 }}>+</button>
+      <button onClick={e => { store.number -= 1 }}>-</button>
+      <span>{store.number}</span>
+      <button onClick={e => { store.number += 1 }}>+</button>
     </div>
   }
 }
 
-const counter = SubX.create({ number: 0 })
+const store = SubX.create({ number: 0 })
 
 describe('Counter', () => {
   test('default', async () => {
-    const renderer = TestRenderer.create(<App counter={counter} />)
+    const renderer = TestRenderer.create(<App store={store} />)
     const minusButton = renderer.root.find(el => el.type === 'button' && el.children && el.children[0] === '-')
     const addButton = renderer.root.find(el => el.type === 'button' && el.children && el.children[0] === '+')
     minusButton.props.onClick()
-    expect(counter.number).toBe(-1)
+    expect(store.number).toBe(-1)
     addButton.props.onClick()
-    expect(counter.number).toBe(0)
+    expect(store.number).toBe(0)
     addButton.props.onClick()
-    expect(counter.number).toBe(1)
+    expect(store.number).toBe(1)
     await delay(20)
     expect(renderHisotry).toEqual([0, 1]) // Intermediate "-1, 0" were not rendered because of debounce
   })

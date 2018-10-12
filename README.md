@@ -128,7 +128,7 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(<App counter={counter} />, document.getElementById('container'));
+ReactDOM.render(<App store={store} />, document.getElementById('container'));
 ```
 
 In the sample above, we "cached" `this.todos` in constructor. It might be a **bad idea**.

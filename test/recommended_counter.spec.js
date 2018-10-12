@@ -8,7 +8,7 @@ import { Component } from '../src/index'
 
 const renderHisotry = []
 
-const counter = SubX.create({
+const store = SubX.create({
   number: 0,
   decrease () {
     this.number -= 1
@@ -20,27 +20,27 @@ const counter = SubX.create({
 
 class App extends Component {
   render () {
-    const counter = this.props.counter
-    renderHisotry.push(counter.number)
+    const store = this.props.store
+    renderHisotry.push(store.number)
     return <div>
-      <button onClick={e => counter.decrease()}>-</button>
-      <span>{counter.number}</span>
-      <button onClick={e => counter.increase()}>+</button>
+      <button onClick={e => store.decrease()}>-</button>
+      <span>{store.number}</span>
+      <button onClick={e => store.increase()}>+</button>
     </div>
   }
 }
 
 describe('Counter', () => {
   test('default', async () => {
-    const renderer = TestRenderer.create(<App counter={counter} />)
+    const renderer = TestRenderer.create(<App store={store} />)
     const minusButton = renderer.root.find(el => el.type === 'button' && el.children && el.children[0] === '-')
     const addButton = renderer.root.find(el => el.type === 'button' && el.children && el.children[0] === '+')
     minusButton.props.onClick()
-    expect(counter.number).toBe(-1)
+    expect(store.number).toBe(-1)
     addButton.props.onClick()
-    expect(counter.number).toBe(0)
+    expect(store.number).toBe(0)
     addButton.props.onClick()
-    expect(counter.number).toBe(1)
+    expect(store.number).toBe(1)
     await delay(20)
     expect(renderHisotry).toEqual([0, 1]) // Intermediate "-1, 0" were not rendered because of debounce
   })
