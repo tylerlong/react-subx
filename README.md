@@ -50,9 +50,9 @@ Make our store a [SubX](https://github.com/tylerlong/subx) object, and update ou
 `react-subx` takes care of everything else.
 
 
-## TodoMVC demo
+## TodoMVC
 
-Here is a [standard TodoMVC demo implemeted with react-subx](https://github.com/tylerlong/subx-demo-todomvc)
+Here is a [standard TodoMVC implemented with React & SubX](https://github.com/tylerlong/subx-demo-todomvc)
 
 #### [online demo](https://tylerlong.github.io/subx-demo-todomvc/index.html)
 
@@ -76,7 +76,7 @@ When working together with a frontend framework such as React, it is important t
 Lots of re-render often leads to performance issues.
 
 `react-subx` takes care of this for us automatically. We don't need to define `shouldComponentUpdate`.
-We don't need to turn to reselet either. And it just works and it is just performant.
+We don't need to turn to reselect either. And it just works and it is just performant.
 
 #### Minimize the burden of developers
 
