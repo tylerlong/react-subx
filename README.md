@@ -72,7 +72,7 @@ SubX is smart enough to cache computed properties to avoid computation.
 
 #### Minimize rendering
 
-When working together with a frontend framework such as React, it is important to control the number of re-render.
+When working with a frontend framework such as React, it is important to control the number of re-render.
 Lots of re-render often leads to performance issues.
 
 `react-subx` takes care of this for us automatically. We don't need to define `shouldComponentUpdate`.
@@ -84,7 +84,7 @@ I used to be a Ruby developer. I cannot agree more on "make developers happy".
 
 With `react-subx`, developers do NOT have to learn actions, reducers, dispatchers, selectors...etc.
 
-Just follow common sense and it just works and is just performant.
+Just follow common sense and it just works and it's just performant.
 
 
 ## How does react-subx work?
