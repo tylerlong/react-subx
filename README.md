@@ -67,7 +67,7 @@ A good state container should meet the following 3 criteria:
 
 #### Minimize computation
 
-Use as many [computed properties](https://github.com/tylerlong/subx#computed-properties) as necessary.
+Use as many [computed properties](https://github.com/tylerlong/subx#computed-properties--getters) as necessary.
 SubX is smart enough to cache computed properties to avoid computation.
 
 #### Minimize rendering
@@ -89,7 +89,7 @@ Just follow common sense and it just works and is just performant.
 
 ## How does react-subx work?
 
-Simply put, `react-subx` deems React's `render` method as a [computed property](https://github.com/tylerlong/subx#computed-properties).
+Simply put, `react-subx` deems React's `render` method as a [computed property](https://github.com/tylerlong/subx#computed-properties--getters).
 
 It applies the same algorithm which powers [SubX](https://github.com/tylerlong/subx) computed properties to React's `render` method. So that `render` method won't be invoked until absolutely necessary.
 
@@ -131,8 +131,17 @@ class App extends Component {
 ReactDOM.render(<App counter={counter} />, document.getElementById('container'));
 ```
 
-In the sample above, we "cached" `this.todos` in constructor. It might be a bad idea.
+In the sample above, we "cached" `this.todos` in constructor. It might be a **bad idea**.
 
 Let's say we execute `store.todos = [...]` somewhere else.
 Then `store.todos` is no longer the `this.todos` we cached.
 Later changes to `store.todos` won't re-render component at all because it uses a cached version of `this.todos` which has been disconnected from `store`.
+
+If we want to save a `todos` for later reference, we can do it right inside the `render` method:
+
+```js
+render() {
+    const todos = this.props.store.todos
+    return todos.map(todo => todo.tite).join(', ')
+}
+```
