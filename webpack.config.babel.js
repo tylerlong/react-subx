@@ -12,13 +12,13 @@ export default {
       commonjs: 'react',
       commonjs2: 'react',
       amd: 'react',
-      root: 'react'
+      root: 'React'
     },
     subx: {
       commonjs: 'subx',
       commonjs2: 'subx',
       amd: 'subx',
-      root: 'subx'
+      root: 'SubX'
     }
   }
 }
