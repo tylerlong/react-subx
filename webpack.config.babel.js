@@ -5,6 +5,7 @@ export default {
   output: {
     library: 'ReactSubX',
     libraryTarget: 'umd',
+    libraryExport: 'default',
     globalObject: 'this' // fix window undefined issue in node
   },
   externals: {
