@@ -3,7 +3,7 @@ import SubX from 'subx'
 import { buffer, debounceTime } from 'rxjs/operators'
 import * as R from 'ramda'
 
-class Component extends React.Component {
+export class Component extends React.Component {
   constructor (props) {
     super(props)
     const clearSubscription = () => {
