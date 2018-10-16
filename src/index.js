@@ -35,10 +35,9 @@ export class Component extends React.Component {
     } else {
       this.componentWillUnmount = () => clearSubscription()
     }
-    if (!this.shouldComponentUpdate) {
-      this.shouldComponentUpdate = (nextProps, nextState) => {
-        return nextState !== this.state
-      }
+    this.shouldComponentUpdate = (nextProps, nextState) => {
+      return nextState !== this.state ||
+          R.pipe(R.union, R.any(k => this.props[k] !== nextProps[k]))(R.keys(this.props), R.keys(nextProps))
     }
   }
 }
