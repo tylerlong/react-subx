@@ -1,6 +1,6 @@
 {
   "name": "react-subx",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Official React bindings for SubX",
   "repository": "git@github.com:tylerlong/react-subx.git",
   "author": "Tyler Long <tyler4long@gmail.com>",
@@ -10,7 +10,7 @@
   "scripts": {
     "test": "standard && jest -w 1",
     "release": "webpack --progress --colors",
-    "prepublishOnly": "yarn release",
+    "prepublishOnly": "yarn test && yarn release",
     "upgradeSubX": "yarn remove subx && yarn add --peer subx && yarn add --dev subx"
   },
   "devDependencies": {

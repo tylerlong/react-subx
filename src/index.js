@@ -18,7 +18,8 @@ export class Component extends React.Component {
       const { result, stream$ } = SubX.runAndMonitor(SubX.create(props), render)
       const bufferedStream = stream$.pipe(buffer(stream$.pipe(debounceTime(2))))
       this.__subscription__ = bufferedStream.subscribe(events => {
-        if (R.all(event => event.type === 'STALE', events) && R.all(event => R.equals(R.path(event.path, props), event.cache), events)) {
+        if (R.all(event => event.type === 'STALE', events) &&
+          R.all(event => R.equals(R.path(event.path, props), event.cache), events)) {
           return
         }
         clearSubscription()
