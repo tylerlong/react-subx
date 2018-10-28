@@ -34,6 +34,6 @@ describe('Counter', () => {
     addButton.props.onClick()
     expect(store.number).toBe(1)
     await delay(20)
-    expect(renderHisotry).toEqual([0, 1]) // Intermediate "-1, 0" were not rendered because of debounce
+    expect(renderHisotry).toEqual([0, -1, 0, 1])
   })
 })
