@@ -1,6 +1,6 @@
 {
   "name": "react-subx",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "description": "Official React bindings for SubX",
   "repository": "git@github.com:tylerlong/react-subx.git",
   "author": "Tyler Long <tyler4long@gmail.com>",
@@ -14,26 +14,26 @@
     "upgradeSubX": "yarn remove subx && yarn add --peer subx && yarn add --dev subx"
   },
   "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.2",
     "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
+    "@babel/register": "^7.4.4",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
-    "jest": "^23.6.0",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
     "markdown-it": "^8.4.2",
-    "react": "^16.6.3",
-    "react-test-renderer": "^16.6.3",
+    "react": "^16.8.6",
+    "react-test-renderer": "^16.8.6",
     "standard": "^12.0.1",
-    "subx": "^0.7.3",
+    "subx": "^0.7.4",
     "timeout-as-promise": "^1.0.0",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
     "yarn-upgrade-all": "^0.5.0"
   },
   "peerDependencies": {
-    "react": "^16.6.3",
-    "subx": "^0.7.3"
+    "react": "^16.8.6",
+    "subx": "^0.7.4"
   },
   "files": [
     "dist/*",
@@ -41,7 +41,7 @@
     "yarn.lock"
   ],
   "jest": {
-    "setupTestFrameworkScriptFile": "./test/setup.js"
+    "setupFilesAfterEnv": ["./test/setup.js"]
   },
   "yarn-upgrade-all": {
     "ignore": [
