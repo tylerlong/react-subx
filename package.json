@@ -10,30 +10,29 @@
   "scripts": {
     "test": "standard && jest -w 1",
     "release": "webpack --progress --colors",
-    "prepublishOnly": "yarn test && yarn release",
-    "upgradeSubX": "yarn remove subx && yarn add --peer subx && yarn add --dev subx"
+    "prepublishOnly": "yarn test && yarn release"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.0",
-    "@babel/preset-env": "^7.5.2",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.4.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/register": "^7.9.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^24.8.0",
-    "jest": "^24.8.0",
-    "markdown-it": "^8.4.2",
-    "react": "^16.8.6",
-    "react-test-renderer": "^16.8.6",
-    "standard": "^12.0.1",
-    "subx": "^0.7.4",
+    "babel-jest": "^25.2.4",
+    "jest": "^25.2.4",
+    "markdown-it": "^10.0.0",
+    "react": "^16.13.1",
+    "react-test-renderer": "^16.13.1",
+    "standard": "^14.3.3",
+    "subx": "^0.9.4",
     "timeout-as-promise": "^1.0.0",
-    "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5",
-    "yarn-upgrade-all": "^0.5.0"
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "yarn-upgrade-all": "^0.5.2"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
-    "subx": "^0.7.4"
+    "react": "^16.13.1",
+    "subx": "^0.9.4"
   },
   "files": [
     "dist/*",
@@ -41,7 +40,9 @@
     "yarn.lock"
   ],
   "jest": {
-    "setupFilesAfterEnv": ["./test/setup.js"]
+    "setupFilesAfterEnv": [
+      "./test/setup.js"
+    ]
   },
   "yarn-upgrade-all": {
     "ignore": [
