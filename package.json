@@ -17,7 +17,6 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "@babel/register": "^7.9.0",
-    "babel-jest": "^25.2.6",
     "jest": "^25.2.6",
     "markdown-it": "^10.0.0",
     "react": "^16.13.1",
