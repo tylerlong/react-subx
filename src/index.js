@@ -22,6 +22,7 @@ export class Component extends React.Component {
         clearSubscription()
         // todo: `setState({})` instead, let React decide when to render
         // ref: https://itnext.io/the-ideas-behind-react-easy-state-901d70e4d03e
+        // but this.forceUpdate() is faster because it skips `shouldComponentUpdate`
         this.forceUpdate()
       })
       return result
