@@ -20,6 +20,8 @@ export class Component extends React.Component {
           return
         }
         clearSubscription()
+        // todo: `setState({})` instead, let React decide when to render
+        // ref: https://itnext.io/the-ideas-behind-react-easy-state-901d70e4d03e
         this.forceUpdate()
       })
       return result
