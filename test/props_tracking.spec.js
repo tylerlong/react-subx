@@ -20,7 +20,7 @@ describe('props tracking', () => {
     expect(R.map(R.dissoc('id'), events)).toEqual([ // only previously SubX Objects are tracked.
       {
         type: 'SET',
-        path: [ 'c', 'd', 'x' ]
+        path: ['c', 'd', 'x']
       }
     ])
   })

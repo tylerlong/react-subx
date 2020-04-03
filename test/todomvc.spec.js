@@ -16,11 +16,13 @@ const store = SubX.create({
 class App extends Component {
   render () {
     const store = this.props.store
-    return <div>
-      <TodoForm addTodo={text => store.todos.push({ text, active: true })} />
-      { store.todos.map(todo => <TodoItem todo={todo} key={todo.text} />) }
-      <TodoFooter store={store} />
-    </div>
+    return (
+      <div>
+        <TodoForm addTodo={text => store.todos.push({ text, active: true })} />
+        {store.todos.map(todo => <TodoItem todo={todo} key={todo.text} />)}
+        <TodoFooter store={store} />
+      </div>
+    )
   }
 }
 
@@ -29,42 +31,50 @@ class TodoForm extends Component {
     super(props)
     this.state = { text: '' }
   }
+
   render () {
-    return <div>
-      <input value={this.state.text}
-        onChange={e => this.setState({ text: e.target.value })}
-        onKeyDown={e => {
-          e.preventDefault()
-          if (e.keyCode !== 13) {
-            return
-          }
-          const text = this.state.text.trim()
-          if (text.length === 0) {
-            return
-          }
-          this.props.addTodo(text)
-          this.setState({ text: '' })
-        }}
-      />
-    </div>
+    return (
+      <div>
+        <input
+          value={this.state.text}
+          onChange={e => this.setState({ text: e.target.value })}
+          onKeyDown={e => {
+            e.preventDefault()
+            if (e.keyCode !== 13) {
+              return
+            }
+            const text = this.state.text.trim()
+            if (text.length === 0) {
+              return
+            }
+            this.props.addTodo(text)
+            this.setState({ text: '' })
+          }}
+        />
+      </div>
+    )
   }
 }
 
 class TodoItem extends Component {
   render () {
     const todo = this.props.todo
-    return <div>
-      { todo.text }
-    </div>
+    return (
+      <div>
+        {todo.text}
+      </div>
+    )
   }
 }
 
 class TodoFooter extends Component {
   render () {
     const store = this.props.store
-    return <div id='footer'>
-      {store.activeCount} Item{store.activeCount === 1 ? '' : 's'} left
-    </div>
+    return (
+      <div id='footer'>
+        {store.activeCount} Item{store.activeCount === 1 ? '' : 's'} left
+      </div>
+    )
   }
 }
 

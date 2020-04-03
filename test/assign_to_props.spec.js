@@ -8,13 +8,17 @@ describe('assign to props', () => {
     class A extends React.Component {
       render () {
         historyNames.push(this.props.person.firstName)
-        return <div>
-          {this.props.person.firstName}
-          <button onClick={e => {
-            this.props = { person: { firstName: 'Peter' } }
-            this.forceUpdate()
-          }}>Peter</button>
-        </div>
+        return (
+          <div>
+            {this.props.person.firstName}
+            <button onClick={e => {
+              this.props = { person: { firstName: 'Peter' } }
+              this.forceUpdate()
+            }}
+            >Peter
+            </button>
+          </div>
+        )
       }
     }
 
@@ -29,13 +33,17 @@ describe('assign to props', () => {
     class A extends React.Component {
       render () {
         historyNames.push(this.props.person.firstName)
-        return <div>
-          {this.props.person.firstName}
-          <button onClick={e => {
-            this.props.person.firstName = 'Peter'
-            this.forceUpdate()
-          }}>Peter</button>
-        </div>
+        return (
+          <div>
+            {this.props.person.firstName}
+            <button onClick={e => {
+              this.props.person.firstName = 'Peter'
+              this.forceUpdate()
+            }}
+            >Peter
+            </button>
+          </div>
+        )
       }
     }
 

@@ -12,11 +12,14 @@ describe('React', () => {
           text: ''
         }
       }
+
       render () {
         count += 1
-        return <div>
-          <input onChange={e => this.setState({ text: e.target.value })} value={this.state.text} />
-        </div>
+        return (
+          <div>
+            <input onChange={e => this.setState({ text: e.target.value })} value={this.state.text} />
+          </div>
+        )
       }
     }
     const renderer = TestRenderer.create(<MyComponent />)
@@ -41,11 +44,14 @@ describe('React', () => {
           text: ''
         }
       }
+
       render () {
         count += 1
-        return <div>
-          <input onChange={e => this.setState({ text: e.target.value })} value={this.state.text} />
-        </div>
+        return (
+          <div>
+            <input onChange={e => this.setState({ text: e.target.value })} value={this.state.text} />
+          </div>
+        )
       }
     }
     const renderer = TestRenderer.create(<MyComponent />)

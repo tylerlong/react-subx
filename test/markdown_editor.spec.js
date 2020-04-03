@@ -21,15 +21,19 @@ class Editor extends Component {
     }
     this.subscription = this.article.$.pipe(debounceTime(30)).subscribe(event => this.setState({ html: this.article.html }))
   }
+
   componentWillUnmount () {
     this.subscription.unsubscribe()
   }
+
   render () {
     renderHistory.push('render')
     return (
       <div>
-        <textarea placeholder='Please enter some markdown...' id='markdown-textarea'
-          value={this.article.text} onChange={e => { this.article.text = e.target.value }} />
+        <textarea
+          placeholder='Please enter some markdown...' id='markdown-textarea'
+          value={this.article.text} onChange={e => { this.article.text = e.target.value }}
+        />
         <div className='markdown-body' dangerouslySetInnerHTML={{ __html: this.state.html }} />
       </div>
     )

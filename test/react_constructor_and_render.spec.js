@@ -14,13 +14,16 @@ describe('React', () => {
         }
         history.push('A constructor end')
       }
+
       render () {
         history.push('A render start')
-        const result = <div>
-          <B text='{this.state.text}' />
-          <button onClick={e => this.setState({ text: 'world' })}>world</button>
-          <C />
-        </div>
+        const result = (
+          <div>
+            <B text='{this.state.text}' />
+            <button onClick={e => this.setState({ text: 'world' })}>world</button>
+            <C />
+          </div>
+        )
         history.push('A render end')
         return result
       }
@@ -31,6 +34,7 @@ describe('React', () => {
         super(props)
         history.push('B constructor end')
       }
+
       render () {
         history.push('B render start')
         const result = this.props.text
@@ -44,6 +48,7 @@ describe('React', () => {
         super(props)
         history.push('C constructor end')
       }
+
       render () {
         history.push('C render start')
         const result = 'I am static'

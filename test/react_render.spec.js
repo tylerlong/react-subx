@@ -11,6 +11,7 @@ class A extends React.Component {
       number: 1
     }
   }
+
   componentDidMount () {
     setTimeout(() => {
       Array(100).fill().forEach(() => {
@@ -20,6 +21,7 @@ class A extends React.Component {
       })
     }, 10)
   }
+
   render () {
     renderCount += 1
     return this.state.number

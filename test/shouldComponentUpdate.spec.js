@@ -11,12 +11,16 @@ describe('shouldComponentUpdate', () => {
           firstName: 'Tyler'
         }
       }
+
       render () {
-        return <div>
-          {this.state.firstName}
-          <button onClick={e => this.setState({ firstName: 'Peter' })}>Peter</button>
-        </div>
+        return (
+          <div>
+            {this.state.firstName}
+            <button onClick={e => this.setState({ firstName: 'Peter' })}>Peter</button>
+          </div>
+        )
       }
+
       shouldComponentUpdate (nextProps, nextState) {
         expect(this.props).toBe(nextProps)
         expect(this.state).not.toBe(nextState)
@@ -34,6 +38,7 @@ describe('shouldComponentUpdate', () => {
       render () {
         return this.props.firstName
       }
+
       shouldComponentUpdate (nextProps, nextState) {
         expect(this.props).not.toBe(nextProps)
         expect(this.state).toBe(nextState)
@@ -48,11 +53,14 @@ describe('shouldComponentUpdate', () => {
           firstName: 'Tyler'
         }
       }
+
       render () {
-        return <div>
-          <C firstName={this.state.firstName} />
-          <button onClick={e => this.setState({ firstName: 'Peter' })}>Peter</button>
-        </div>
+        return (
+          <div>
+            <C firstName={this.state.firstName} />
+            <button onClick={e => this.setState({ firstName: 'Peter' })}>Peter</button>
+          </div>
+        )
       }
     }
 
@@ -65,11 +73,14 @@ describe('shouldComponentUpdate', () => {
     let count = 0
     class D extends React.Component {
       render () {
-        return <div>
-          {this.props.person.firstName}
-          <button onClick={e => { this.props.person.firstName = 'Peter' }}>Peter</button>
-        </div>
+        return (
+          <div>
+            {this.props.person.firstName}
+            <button onClick={e => { this.props.person.firstName = 'Peter' }}>Peter</button>
+          </div>
+        )
       }
+
       shouldComponentUpdate (nextProps, nextState) {
         count += 1
         return true
@@ -97,11 +108,14 @@ describe('shouldComponentUpdate', () => {
           ]
         }
       }
+
       render () {
-        return <div>
-          {this.state.todos.map(todo => <F key={todo.title} todo={todo} />)}
-          <button onClick={e => { this.setState({ todos: [...this.state.todos, { title: '333' }] }) }}>Add</button>
-        </div>
+        return (
+          <div>
+            {this.state.todos.map(todo => <F key={todo.title} todo={todo} />)}
+            <button onClick={e => { this.setState({ todos: [...this.state.todos, { title: '333' }] }) }}>Add</button>
+          </div>
+        )
       }
     }
 
@@ -109,6 +123,7 @@ describe('shouldComponentUpdate', () => {
       render () {
         return this.props.todo.title
       }
+
       shouldComponentUpdate (nextProps, nextState) {
         expect(this.state).toBe(nextState)
         expect(nextState).toBeNull()

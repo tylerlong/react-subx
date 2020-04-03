@@ -12,11 +12,13 @@ class App extends Component {
   render () {
     const store = this.props.store
     renderHisotry.push(store.number)
-    return <div>
-      <button onClick={e => { store.number -= 1 }}>-</button>
-      <span>{store.number}</span>
-      <button onClick={e => { store.number += 1 }}>+</button>
-    </div>
+    return (
+      <div>
+        <button onClick={e => { store.number -= 1 }}>-</button>
+        <span>{store.number}</span>
+        <button onClick={e => { store.number += 1 }}>+</button>
+      </div>
+    )
   }
 }
 

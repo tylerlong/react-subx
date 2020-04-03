@@ -10,19 +10,24 @@ class App extends React.Component {
     super(props)
     this.store = this.props.store
   }
+
   componentDidMount () {
     this.subscription = this.store.$.subscribe(() => this.forceUpdate())
   }
+
   componentWillUnmount () {
     this.subscription.unsubscribe()
   }
+
   render () {
     renderHisotry.push(this.store.number)
-    return <div>
-      <button onClick={e => { this.store.number -= 1 }}>-</button>
-      <span>{this.store.number}</span>
-      <button onClick={e => { this.store.number += 1 }}>+</button>
-    </div>
+    return (
+      <div>
+        <button onClick={e => { this.store.number -= 1 }}>-</button>
+        <span>{this.store.number}</span>
+        <button onClick={e => { this.store.number += 1 }}>+</button>
+      </div>
+    )
   }
 }
 

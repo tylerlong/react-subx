@@ -9,11 +9,14 @@ class A extends React.Component {
       showB: true
     }
   }
+
   render () {
-    return <div>
-      {this.state.showB ? <B /> : ''}
-      <button onClick={e => this.setState({ showB: !this.state.showB })} />
-    </div>
+    return (
+      <div>
+        {this.state.showB ? <B /> : ''}
+        <button onClick={e => this.setState({ showB: !this.state.showB })} />
+      </div>
+    )
   }
 }
 
@@ -23,12 +26,15 @@ class B extends React.Component {
     super(props)
     history.push('B constructor')
   }
+
   componentDidMount () {
     history.push('B did mount')
   }
+
   componentWillUnmount () {
     history.push('B will unmount')
   }
+
   render () {
     return 'Hello'
   }
