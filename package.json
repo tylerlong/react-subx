@@ -1,6 +1,6 @@
 {
   "name": "react-subx",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Official React bindings for SubX",
   "repository": "git@github.com:tylerlong/react-subx.git",
   "author": "Tyler Long <tyler4long@gmail.com>",
@@ -40,7 +40,7 @@
     "subx": "^0.9.8"
   },
   "files": [
-    "dist/*",
+    "build/*",
     "src/*",
     "yarn.lock"
   ],

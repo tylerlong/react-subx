@@ -56,5 +56,3 @@ export class Component<P, S> extends React.Component<P, S> {
     };
   }
 }
-
-export default {Component};
