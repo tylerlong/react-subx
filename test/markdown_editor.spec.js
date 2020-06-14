@@ -40,14 +40,14 @@ class Editor extends Component {
   }
 }
 
-const Article = new SubX({
+const Article = SubX.model({
   text: '',
   get html () {
     renderHistory.push('mdi.render')
     return mdi.render(this.text).trim()
   }
 })
-const article = new Article()
+const article = Article.create()
 
 describe('Markdown Editor', () => {
   test('default', async () => {
