@@ -10,20 +10,14 @@
   "scripts": {
     "test": "standard && jest -w 1",
     "release": "webpack --progress --colors",
-    "prepublishOnly": "yarn test && yarn release",
-    "check": "gts check",
-    "clean": "gts clean",
-    "compile": "tsc",
-    "fix": "gts fix",
-    "prepare": "yarn run compile",
-    "pretest": "yarn run compile",
-    "posttest": "yarn run check"
+    "prepublishOnly": "yarn test && yarn release"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "@babel/register": "^7.10.1",
+    "@types/node": "^14.0.13",
     "gts": "^2.0.2",
     "jest": "^26.0.1",
     "markdown-it": "^11.0.0",
@@ -32,11 +26,10 @@
     "standard": "^14.3.4",
     "subx": "^0.9.8",
     "timeout-as-promise": "^1.0.0",
+    "typescript": "^3.9.5",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "yarn-upgrade-all": "^0.5.2",
-    "typescript": "^3.8.3",
-    "@types/node": "^13.11.1"
+    "yarn-upgrade-all": "^0.5.2"
   },
   "peerDependencies": {
     "react": "^16.13.1",
