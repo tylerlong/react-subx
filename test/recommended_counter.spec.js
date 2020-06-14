@@ -4,7 +4,7 @@ import TestRenderer from 'react-test-renderer'
 import SubX from 'subx'
 import delay from 'timeout-as-promise'
 
-import { Component } from '../src/index'
+import { Component } from '../build/index'
 
 const renderHisotry = []
 
