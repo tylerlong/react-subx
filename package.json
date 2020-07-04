@@ -1,15 +1,15 @@
 {
   "name": "react-subx",
-  "version": "0.7.2",
+  "version": "0.8.0",
   "description": "Official React bindings for SubX",
   "repository": "git@github.com:tylerlong/react-subx.git",
   "author": "Tyler Long <tyler4long@gmail.com>",
   "license": "MIT",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "build/src/index.js",
+  "types": "build/src/index.d.ts",
   "scripts": {
-    "test": "standard && jest -w 1",
-    "release": "rm -rf build && tsc && mv build/src/* build/ && rmdir build/src",
+    "test": "standard && tsc && jest -w 1",
+    "release": "rm -rf build && tsc",
     "prepublishOnly": "yarn test && yarn release"
   },
   "dependencies": {

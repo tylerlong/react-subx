@@ -2,7 +2,7 @@ import React from 'react';
 import SubX from 'subx';
 import * as R from 'ramda';
 import {Subscription} from 'rxjs';
-import {StaleEvent} from 'subx/build/src/types';
+import {StaleEvent, JsonObj} from 'subx/build/src/types';
 
 export class Component<P = {}, S = {}> extends React.Component<P, S> {
   __subscription__?: Subscription;
@@ -47,11 +47,7 @@ export class Component<P = {}, S = {}> extends React.Component<P, S> {
         nextState !== this.state ||
         [
           ...new Set([...Object.keys(this.props), ...Object.keys(nextProps)]),
-        ].some(
-          k =>
-            (this.props as {[k: string]: any})[k] !==
-            (nextProps as {[k: string]: any})[k]
-        )
+        ].some(k => (this.props as JsonObj)[k] !== (nextProps as JsonObj)[k])
       );
     };
   }

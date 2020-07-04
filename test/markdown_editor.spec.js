@@ -6,7 +6,7 @@ import SubX from 'subx'
 import MarkdownIt from 'markdown-it'
 import delay from 'timeout-as-promise'
 
-import { Component } from '../build/index'
+import { Component } from '../build/src/index'
 
 const mdi = new MarkdownIt()
 
