@@ -2,7 +2,7 @@ import React from 'react';
 import SubX from 'subx';
 import * as R from 'ramda';
 import {Subscription} from 'rxjs';
-import {StaleEvent} from 'subx/build/types';
+import {StaleEvent} from 'subx/build/src/types';
 
 export class Component<P = {}, S = {}> extends React.Component<P, S> {
   __subscription__?: Subscription;
