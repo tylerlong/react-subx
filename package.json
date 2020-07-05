@@ -1,6 +1,6 @@
 {
   "name": "react-subx",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Official React bindings for SubX",
   "repository": "git@github.com:tylerlong/react-subx.git",
   "author": "Tyler Long <tyler4long@gmail.com>",
@@ -30,14 +30,14 @@
     "react": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "standard": "^14.3.4",
-    "subx": "^0.9.12",
+    "subx": "^0.9.14",
     "timeout-as-promise": "^1.0.0",
     "typescript": "^3.9.6",
     "yarn-upgrade-all": "^0.5.2"
   },
   "peerDependencies": {
     "react": "^16.13.1",
-    "subx": "^0.9.12"
+    "subx": "^0.9.14"
   },
   "files": [
     "build/*",
