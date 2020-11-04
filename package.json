@@ -1,6 +1,6 @@
 {
   "name": "react-subx",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "Official React bindings for SubX",
   "repository": "git@github.com:tylerlong/react-subx.git",
   "author": "Tyler Long <tyler4long@gmail.com>",
@@ -13,31 +13,31 @@
     "prepublishOnly": "yarn test && yarn release"
   },
   "dependencies": {
-    "@types/ramda": "^0.27.7",
-    "@types/react": "^16.9.41",
-    "ramda": "^0.27.0",
-    "rxjs": "^6.6.0"
+    "@types/ramda": "^0.27.32",
+    "@types/react": "^16.9.55",
+    "ramda": "^0.27.1",
+    "rxjs": "^6.6.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/preset-react": "^7.10.4",
-    "@babel/register": "^7.10.4",
-    "@types/node": "^14.0.14",
-    "gts": "^2.0.2",
-    "jest": "^26.1.0",
-    "markdown-it": "^11.0.0",
-    "react": "^16.13.1",
-    "react-test-renderer": "^16.13.1",
-    "standard": "^14.3.4",
-    "subx": "^0.9.14",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/register": "^7.12.1",
+    "@types/node": "^14.14.6",
+    "gts": "^3.0.2",
+    "jest": "^26.6.2",
+    "markdown-it": "^12.0.2",
+    "react": "^17.0.1",
+    "react-test-renderer": "^17.0.1",
+    "standard": "^16.0.1",
+    "subx": "^0.9.15",
     "timeout-as-promise": "^1.0.0",
-    "typescript": "^3.9.6",
-    "yarn-upgrade-all": "^0.5.2"
+    "typescript": "^4.0.5",
+    "yarn-upgrade-all": "^0.5.4"
   },
   "peerDependencies": {
-    "react": "^16.13.1",
-    "subx": "^0.9.14"
+    "react": "^17.0.1",
+    "subx": "^0.9.15"
   },
   "files": [
     "build/*",
