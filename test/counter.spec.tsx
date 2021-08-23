@@ -1,16 +1,16 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import SubX from 'subx';
-import delay from 'timeout-as-promise';
+import waitFor from 'wait-for-async';
 
 import {Component} from '../build/src/index';
 
-const renderHisotry = [];
+const renderHistory: number[] = [];
 
-class App extends Component {
+class App extends Component<any> {
   render() {
     const store = this.props.store;
-    renderHisotry.push(store.number);
+    renderHistory.push(store.number);
     return (
       <div>
         <button
@@ -50,7 +50,7 @@ describe('Counter', () => {
     expect(store.number).toBe(0);
     addButton.props.onClick();
     expect(store.number).toBe(1);
-    await delay(20);
-    expect(renderHisotry).toEqual([0, -1, 0, 1]);
+    await waitFor({interval: 20});
+    expect(renderHistory).toEqual([0, -1, 0, 1]);
   });
 });

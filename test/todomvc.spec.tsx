@@ -1,24 +1,26 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import SubX from 'subx';
-import delay from 'timeout-as-promise';
+import waitFor from 'wait-for-async';
 
 import {Component} from '../build/src/index';
 
 const store = SubX.create({
   todos: [],
   get activeCount() {
-    return this.todos.filter(todo => todo.active).length;
+    return this.todos.filter((todo: any) => todo.active).length;
   },
 });
 
-class App extends Component {
+class App extends Component<any> {
   render() {
     const store = this.props.store;
     return (
       <div>
-        <TodoForm addTodo={text => store.todos.push({text, active: true})} />
-        {store.todos.map(todo => (
+        <TodoForm
+          addTodo={(text: any) => store.todos.push({text, active: true})}
+        />
+        {store.todos.map((todo: any) => (
           <TodoItem todo={todo} key={todo.text} />
         ))}
         <TodoFooter store={store} />
@@ -27,8 +29,8 @@ class App extends Component {
   }
 }
 
-class TodoForm extends Component {
-  constructor(props) {
+class TodoForm extends Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = {text: ''};
   }
@@ -57,14 +59,14 @@ class TodoForm extends Component {
   }
 }
 
-class TodoItem extends Component {
+class TodoItem extends Component<any> {
   render() {
     const todo = this.props.todo;
     return <div>{todo.text}</div>;
   }
 }
 
-class TodoFooter extends Component {
+class TodoFooter extends Component<any> {
   render() {
     const store = this.props.store;
     return (
@@ -119,7 +121,7 @@ describe('Todo MVC', () => {
     });
     expect(input.props.value).toBe('');
 
-    await delay(20);
+    await waitFor({interval: 20});
 
     expect(footer.children).toEqual(['3', ' Item', 's', ' left']);
   });

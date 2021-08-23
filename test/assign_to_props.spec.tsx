@@ -3,8 +3,8 @@ import TestRenderer from 'react-test-renderer';
 
 describe('assign to props', () => {
   test("assign to props doesn't work", async () => {
-    const historyNames = [];
-    class A extends React.Component {
+    const historyNames: string[] = [];
+    class A extends React.Component<any> {
       render() {
         historyNames.push(this.props.person.firstName);
         return (
@@ -12,7 +12,7 @@ describe('assign to props', () => {
             {this.props.person.firstName}
             <button
               onClick={() => {
-                this.props = {person: {firstName: 'Peter'}};
+                (this as any).props = {person: {firstName: 'Peter'}};
                 this.forceUpdate();
               }}
             >
@@ -30,8 +30,8 @@ describe('assign to props', () => {
   });
 
   test("assign to props's props does work", async () => {
-    const historyNames = [];
-    class A extends React.Component {
+    const historyNames: string[] = [];
+    class A extends React.Component<any> {
       render() {
         historyNames.push(this.props.person.firstName);
         return (

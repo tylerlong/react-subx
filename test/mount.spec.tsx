@@ -1,8 +1,8 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 
-class A extends React.Component {
-  constructor(props) {
+class A extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       showB: true,
@@ -19,9 +19,9 @@ class A extends React.Component {
   }
 }
 
-const history = [];
+const history: string[] = [];
 class B extends React.Component {
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     history.push('B constructor');
   }

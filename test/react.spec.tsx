@@ -4,8 +4,8 @@ import TestRenderer from 'react-test-renderer';
 describe('React', () => {
   test('render', () => {
     let count = 0;
-    class MyComponent extends React.Component {
-      constructor(props) {
+    class MyComponent extends React.Component<any, any> {
+      constructor(props: any) {
         super(props);
         this.state = {
           text: '',
@@ -34,13 +34,13 @@ describe('React', () => {
   test('inheritance', () => {
     let count = 0;
     let count2 = 0;
-    class BaseComponent extends React.Component {
+    class BaseComponent extends React.Component<any, any> {
       componentDidMount() {
         count2 += 1;
       }
     }
     class MyComponent extends BaseComponent {
-      constructor(props) {
+      constructor(props: any) {
         super(props);
         this.state = {
           text: '',

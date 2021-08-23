@@ -3,8 +3,8 @@ import TestRenderer from 'react-test-renderer';
 
 describe('shouldComponentUpdate', () => {
   test('Class A', () => {
-    class A extends React.Component {
-      constructor(props) {
+    class A extends React.Component<any, any> {
+      constructor(props: any) {
         super(props);
         this.state = {
           firstName: 'Tyler',
@@ -22,7 +22,7 @@ describe('shouldComponentUpdate', () => {
         );
       }
 
-      shouldComponentUpdate(nextProps, nextState) {
+      shouldComponentUpdate(nextProps: any, nextState: any) {
         expect(this.props).toBe(nextProps);
         expect(this.state).not.toBe(nextState);
         return true;
@@ -35,20 +35,20 @@ describe('shouldComponentUpdate', () => {
   });
 
   test('class B & C', () => {
-    class C extends React.Component {
+    class C extends React.Component<any> {
       render() {
         return this.props.firstName;
       }
 
-      shouldComponentUpdate(nextProps, nextState) {
+      shouldComponentUpdate(nextProps: any, nextState: any) {
         expect(this.props).not.toBe(nextProps);
         expect(this.state).toBe(nextState);
         return true;
       }
     }
 
-    class B extends React.Component {
-      constructor(props) {
+    class B extends React.Component<any, any> {
+      constructor(props: any) {
         super(props);
         this.state = {
           firstName: 'Tyler',
@@ -74,7 +74,7 @@ describe('shouldComponentUpdate', () => {
 
   test('class D', () => {
     let count = 0;
-    class D extends React.Component {
+    class D extends React.Component<any> {
       render() {
         return (
           <div>
@@ -103,8 +103,8 @@ describe('shouldComponentUpdate', () => {
   });
 
   test('class E & F', () => {
-    class E extends React.Component {
-      constructor(props) {
+    class E extends React.Component<any, any> {
+      constructor(props: any) {
         super(props);
         this.state = {
           todos: [
@@ -121,7 +121,7 @@ describe('shouldComponentUpdate', () => {
       render() {
         return (
           <div>
-            {this.state.todos.map(todo => (
+            {this.state.todos.map((todo: any) => (
               <F key={todo.title} todo={todo} />
             ))}
             <button
@@ -136,12 +136,12 @@ describe('shouldComponentUpdate', () => {
       }
     }
 
-    class F extends React.Component {
+    class F extends React.Component<any> {
       render() {
         return this.props.todo.title;
       }
 
-      shouldComponentUpdate(nextProps, nextState) {
+      shouldComponentUpdate(nextProps: any, nextState: any) {
         expect(this.state).toBe(nextState);
         expect(nextState).toBeNull();
         expect(this.props).not.toBe(nextProps); // weird

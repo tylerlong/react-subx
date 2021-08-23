@@ -3,9 +3,9 @@ import TestRenderer from 'react-test-renderer';
 
 describe('React', () => {
   test('constructor', () => {
-    const history = [];
+    const history: string[] = [];
     class A extends React.Component {
-      constructor(props) {
+      constructor(props: any) {
         history.push('A constructor start');
         super(props);
         this.state = {
@@ -29,8 +29,8 @@ describe('React', () => {
         return result;
       }
     }
-    class B extends React.Component {
-      constructor(props) {
+    class B extends React.Component<any> {
+      constructor(props: any) {
         history.push('B constructor start');
         super(props);
         history.push('B constructor end');
@@ -44,7 +44,7 @@ describe('React', () => {
       }
     }
     class C extends React.Component {
-      constructor(props) {
+      constructor(props: any) {
         history.push('C constructor start');
         super(props);
         history.push('C constructor end');

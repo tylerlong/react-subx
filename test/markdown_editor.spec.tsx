@@ -3,16 +3,18 @@ import {debounceTime} from 'rxjs/operators';
 import TestRenderer from 'react-test-renderer';
 import SubX from 'subx';
 import MarkdownIt from 'markdown-it';
-import delay from 'timeout-as-promise';
+import waitFor from 'wait-for-async';
 
 import {Component} from '../build/src/index';
 
 const mdi = new MarkdownIt();
 
-const renderHistory = [];
+const renderHistory: string[] = [];
 
-class Editor extends Component {
-  constructor(props) {
+class Editor extends Component<any, any> {
+  article: any;
+  subscription: any;
+  constructor(props: any) {
     super(props);
     this.article = props.article;
     this.state = {
@@ -67,7 +69,7 @@ describe('Markdown Editor', () => {
     textarea.props.onChange({target: {value: '# Hello'}});
     textarea.props.onChange({target: {value: '# Hello world'}});
     expect(markdownBody.props.dangerouslySetInnerHTML.__html).toBe(''); // because of debounce
-    await delay(40);
+    await waitFor({interval: 40});
     expect(markdownBody.props.dangerouslySetInnerHTML.__html).toBe(
       '<h1>Hello world</h1>'
     );

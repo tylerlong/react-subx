@@ -1,6 +1,6 @@
 import SubX from 'subx';
 import _ from 'lodash';
-import {HandlerEvent} from 'subx/build/src/types';
+import {HandlerEvent} from 'subx/build/types';
 
 describe('props tracking', () => {
   test('default', () => {

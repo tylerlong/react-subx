@@ -2,10 +2,12 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import SubX from 'subx';
 
-const renderHisotry = [];
+const renderHisotry: number[] = [];
 
-class App extends React.Component {
-  constructor(props) {
+class App extends React.Component<any> {
+  store: any;
+  subscription: any;
+  constructor(props: any) {
     super(props);
     this.store = this.props.store;
   }

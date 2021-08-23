@@ -1,10 +1,10 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import delay from 'timeout-as-promise';
+import waitFor from 'wait-for-async';
 
 let renderCount = 0;
-class A extends React.Component {
-  constructor(props) {
+class A extends React.Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = {
       number: 1,
@@ -14,7 +14,7 @@ class A extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       Array(100)
-        .fill()
+        .fill(0)
         .forEach(() => {
           this.setState({
             number: 2,
@@ -32,7 +32,7 @@ class A extends React.Component {
 describe('React render', () => {
   test('default', async () => {
     TestRenderer.create(<A />);
-    await delay(50);
+    await waitFor({interval: 50});
     expect(renderCount).toBe(101); // every setState triggers render
   });
 });

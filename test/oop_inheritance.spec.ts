@@ -15,9 +15,9 @@ describe('OOP inheritance', () => {
   test('parent wrap child method', () => {
     class A {
       constructor() {
-        if (typeof this.render === 'function') {
-          const temp = this.render.bind(this);
-          this.render = () => {
+        if (typeof (this as any).render === 'function') {
+          const temp = (this as any).render.bind(this);
+          (this as any).render = () => {
             return `Before ${temp()} after`;
           };
         }
