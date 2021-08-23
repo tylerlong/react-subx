@@ -8,14 +8,14 @@
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
   "scripts": {
-    "test": "standard && tsc && jest -w 1",
+    "test": "tsc && jest -w 1 --forceExit",
     "release": "rm -rf build && tsc",
     "prepublishOnly": "yarn test && yarn release"
   },
   "dependencies": {
-    "@types/ramda": "^0.27.32",
+    "@types/lodash": "^4.14.172",
     "@types/react": "^16.9.55",
-    "ramda": "^0.27.1",
+    "lodash": "^4.17.21",
     "rxjs": "^6.6.3"
   },
   "devDependencies": {
@@ -29,7 +29,6 @@
     "markdown-it": "^12.0.2",
     "react": "^17.0.1",
     "react-test-renderer": "^17.0.1",
-    "standard": "^16.0.1",
     "subx": "^0.9.16",
     "timeout-as-promise": "^1.0.0",
     "typescript": "^4.0.5",

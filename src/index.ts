@@ -1,6 +1,6 @@
 import React from 'react';
 import SubX from 'subx';
-import * as R from 'ramda';
+import _ from 'lodash';
 import {Subscription} from 'rxjs';
 import {StaleEvent, JsonObj} from 'subx/build/src/types';
 
@@ -21,7 +21,7 @@ export class Component<P = {}, S = {}> extends React.Component<P, S> {
       this.__subscription__ = stream$.subscribe(event => {
         if (
           event.type === 'STALE' &&
-          R.equals(R.path(event.path, props), (event as StaleEvent).cache)
+          _.isEqual(_.get(props, event.path), (event as StaleEvent).cache)
         ) {
           return;
         }
