@@ -3,11 +3,18 @@ import TestRenderer from 'react-test-renderer';
 import SubX from 'subx';
 import waitFor from 'wait-for-async';
 
-import {Component} from '../build/src/index';
+import {Component} from '../src/index';
 
 const renderHistory: number[] = [];
 
-class App extends Component<any> {
+type StoreType = {
+  number: number;
+};
+type PropsType = {
+  store: StoreType;
+};
+
+class App extends Component<PropsType> {
   render() {
     const store = this.props.store;
     renderHistory.push(store.number);
@@ -33,7 +40,7 @@ class App extends Component<any> {
   }
 }
 
-const store = SubX.create({number: 0});
+const store = SubX.proxy<StoreType>({number: 0});
 
 describe('Counter', () => {
   test('default', async () => {

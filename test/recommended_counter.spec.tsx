@@ -3,7 +3,7 @@ import TestRenderer from 'react-test-renderer';
 import SubX from 'subx';
 import waitFor from 'wait-for-async';
 
-import {Component} from '../build/src/index';
+import {Component} from '../src/index';
 
 const renderHistory: number[] = [];
 

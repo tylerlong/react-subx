@@ -2,7 +2,7 @@ import React from 'react';
 import SubX from 'subx';
 import _ from 'lodash';
 import {Subscription} from 'rxjs';
-import {StaleEvent, JsonObj} from 'subx/build/src/types';
+import {StaleEvent, JsonObj} from 'subx/build/types';
 
 export class Component<P = {}, S = {}> extends React.Component<P, S> {
   __subscription__?: Subscription;

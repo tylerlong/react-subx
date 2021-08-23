@@ -5,7 +5,7 @@ import SubX from 'subx';
 import MarkdownIt from 'markdown-it';
 import waitFor from 'wait-for-async';
 
-import {Component} from '../build/src/index';
+import {Component} from '../src/index';
 
 const mdi = new MarkdownIt();
 
