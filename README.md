@@ -145,8 +145,3 @@ render() {
     return todos.map(todo => todo.tite).join(', ')
 }
 ```
-
-
-## Todo
-
-- Change test cases to TypeScript
